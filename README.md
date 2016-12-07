@@ -1,0 +1,11 @@
+Debian Jessie image with GDAL installed.  Used as a base image for various geospatial use cases.
+
+# Usage
+
+Run gdalinfo on a file at `$(pwd)/file.tif` with this image:
+
+	docker run --rm -it -v $(pwd):/data pedros007/debian-gdal:2.1.2 gdalinfo /data/file.tif
+
+# Build
+
+	docker build -t pedros007/debian-gdal:2.1.2 .
