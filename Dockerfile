@@ -3,7 +3,7 @@ MAINTAINER Peter Schmitt "pschmitt@gmail.com"
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y \
-    build-essential make curl \
+    build-essential make curl ca-certificates libcurl4-gnutls-dev \
     shapelib libproj-dev libproj0 proj-data libgeos-3.4.2 libgeos-c1 libgeos-dev \
     postgresql-client-common libpq-dev \
     -y --no-install-recommends && \
@@ -32,5 +32,5 @@ RUN apt-get update && apt-get upgrade -y && \
     --with-xerces=no && \
     make -j $(grep --count ^processor /proc/cpuinfo) && \
     make install && \
-    apt-get remove --purge -y libproj-dev libgeos-dev libpq-dev && \
+    apt-get remove --purge -y libcurl4-gnutls-dev libproj-dev libgeos-dev libpq-dev && \
     rm -rf /var/lib/apt/lists/* /tmp/*
