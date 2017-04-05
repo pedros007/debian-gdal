@@ -6,8 +6,8 @@ This Docker Image is available on Dockerhub at [debian-gdal](https://hub.docker.
 
 Run gdalinfo on a file at `$(pwd)/file.tif` with this image:
 
-	docker run --rm -it -v $(pwd):/data pedros007/debian-gdal:2.1.2 gdalinfo /data/file.tif
+	docker run --rm -it -v $(pwd):/data pedros007/debian-gdal:2.1.3 gdalinfo /data/file.tif
 
 # Build
 
-	docker build -t pedros007/debian-gdal:2.1.2 .
+	docker build -t pedros007/debian-gdal:2.1.3 .
