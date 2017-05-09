@@ -7,8 +7,8 @@ RUN apt-get update && apt-get upgrade -y && \
     shapelib libproj-dev libproj0 proj-data libgeos-3.4.2 libgeos-c1 libgeos-dev \
     postgresql-client-common libpq-dev \
     -y --no-install-recommends && \
-    curl http://download.osgeo.org/gdal/2.1.3/gdal-2.1.3.tar.gz | tar zxv -C /tmp && \
-    cd /tmp/gdal-2.1.3 && \
+    curl http://download.osgeo.org/gdal/2.2.0/gdal-2.2.0.tar.gz | tar zxv -C /tmp && \
+    cd /tmp/gdal-2.2.0 && \
     ./configure \
     --prefix=/usr \
     --with-threads \
