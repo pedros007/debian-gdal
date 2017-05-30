@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM python:2
 MAINTAINER Peter Schmitt "pschmitt@gmail.com"
 
 RUN apt-get update && apt-get upgrade -y && \
