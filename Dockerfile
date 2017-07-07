@@ -7,8 +7,8 @@ RUN apt-get update && apt-get upgrade -y && \
     shapelib libproj-dev libproj0 proj-data libgeos-3.4.2 libgeos-c1 libgeos-dev \
     postgresql-client-common libpq-dev \
     -y --no-install-recommends && \
-    curl http://download.osgeo.org/gdal/2.2.0/gdal-2.2.0.tar.gz | tar zxv -C /tmp && \
-    cd /tmp/gdal-2.2.0 && \
+    svn co -r 39502 https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
+    cd /tmp/gdal-trunk && \
     ./configure \
     --prefix=/usr \
     --with-threads \
@@ -34,3 +34,7 @@ RUN apt-get update && apt-get upgrade -y && \
     make install && \
     apt-get remove --purge -y libcurl4-gnutls-dev libproj-dev libgeos-dev libpq-dev && \
     rm -rf /var/lib/apt/lists/* /tmp/*
+
+# Set HOME dir so AWS credentials can be fetched at ~/.aws/credentials
+# https://lists.osgeo.org/pipermail/gdal-dev/2017-July/046846.html
+ENV HOME /root
