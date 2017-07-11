@@ -27,7 +27,7 @@ RUN apt-get update && apt-get upgrade -y && \
     --with-java=no \
     --with-mrsid=no \
     --with-perl=no \
-    --with-python=no \
+    --with-python=yes \
     --with-webp=no \
     --with-xerces=no && \
     make -j $(grep --count ^processor /proc/cpuinfo) && \
