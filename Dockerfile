@@ -7,7 +7,7 @@ RUN apt-get update && apt-get upgrade -y && \
     shapelib libproj-dev libproj0 proj-data libgeos-3.4.2 libgeos-c1 libgeos-dev \
     postgresql-client-common libpq-dev \
     -y --no-install-recommends && \
-    svn co -r 39502 https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
+    svn co -r 39611 https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
     cd /tmp/gdal-trunk && \
     ./configure \
     --prefix=/usr \
