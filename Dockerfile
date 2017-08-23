@@ -43,4 +43,6 @@ RUN apt-get update && apt-get upgrade -y && \
 
 # Set HOME dir so AWS credentials can be fetched at ~/.aws/credentials
 # https://lists.osgeo.org/pipermail/gdal-dev/2017-July/046846.html
-ENV HOME /root
+# I had issues with Python bindings unless I set PYTHONPATH accordingly.
+ENV HOME=/root \
+    PYTHONPATH=/usr/lib/python2.7/site-packages
