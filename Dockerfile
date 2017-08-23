@@ -6,11 +6,11 @@ MAINTAINER Peter Schmitt "pschmitt@gmail.com"
 #cd /tmp/gdal-2.2.1 && \
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y \
-    build-essential make curl ca-certificates libcurl4-gnutls-dev \
+    build-essential make cmake curl ca-certificates libcurl4-gnutls-dev \
+    libjasper1 libjasper-dev \
     shapelib libproj-dev libproj0 proj-data libgeos-3.4.2 libgeos-c1 libgeos-dev \
     postgresql-client-common libpq-dev \
     -y --no-install-recommends && \
-    curl -L https://github.com/uclouvain/openjpeg/releases/download/v2.2.0/openjpeg-v2.2.0-linux-x86_64.tar.gz | tar zxv --strip-components=1 -C /usr && \
     pip install numpy && \
     svn co https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
     cd /tmp/gdal-trunk && \
@@ -26,7 +26,7 @@ RUN apt-get update && apt-get upgrade -y && \
     --with-pg \
     --with-curl \
     --with-static-proj4=yes \
-    --with-openjpeg=yes \
+    --with-jasper=yes \
     --with-ecw=no \
     --with-grass=no \
     --with-hdf5=no \
