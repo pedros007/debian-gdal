@@ -11,6 +11,8 @@ RUN apt-get update && apt-get upgrade -y && \
     shapelib libproj-dev libproj0 proj-data libgeos-3.4.2 libgeos-c1 libgeos-dev \
     postgresql-client-common libpq-dev \
     -y --no-install-recommends && \
+    git clone -b master https://github.com/uclouvain/openjpeg.git /tmp/openjpeg && \
+    mkdir /tmp/openjpeg/build && cd /tmp/openjpeg/build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && make install && \
     pip install numpy && \
     svn co https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
     cd /tmp/gdal-trunk && \
@@ -26,7 +28,7 @@ RUN apt-get update && apt-get upgrade -y && \
     --with-pg \
     --with-curl \
     --with-static-proj4=yes \
-    --with-jasper=yes \
+    --with-openjpeg=yes \
     --with-ecw=no \
     --with-grass=no \
     --with-hdf5=no \
