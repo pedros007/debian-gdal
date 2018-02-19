@@ -1,9 +1,12 @@
 FROM python:2
 MAINTAINER Peter Schmitt "pschmitt@gmail.com"
 
+# To build from SVN, comment out curl http://download.osgeo..... and cd, replace with:
+#
+#   svn co https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
+#   cd /tmp/gdal-trunk && \
+
 # To build from a release:
-#curl http://download.osgeo.org/gdal/2.2.1/gdal-2.2.1.tar.gz | tar zxv -C /tmp && \
-#cd /tmp/gdal-2.2.1 && \
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y \
     build-essential make cmake curl ca-certificates libcurl4-gnutls-dev \
@@ -14,8 +17,8 @@ RUN apt-get update && apt-get upgrade -y && \
     git clone -b master https://github.com/uclouvain/openjpeg.git /tmp/openjpeg && \
     mkdir /tmp/openjpeg/build && cd /tmp/openjpeg/build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && make install && \
     pip install numpy && \
-    svn co https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
-    cd /tmp/gdal-trunk && \
+    curl http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz | tar zxv -C /tmp && \
+    cd /tmp/gdal-2.2.3 && \
     ./configure \
     --prefix=/usr \
     --with-threads \
