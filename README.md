@@ -1,4 +1,4 @@
-Debian Jessie image with GDAL installed.  Used as a base image for various geospatial use cases, such as [https://github.com/pedros007/debian-mapserver](debian-mapserver)
+Debian Jessie image with GDAL installed.  Used as a base image for various geospatial use cases, such as [debian-mapserver](https://github.com/pedros007/debian-mapserver)
 
 This Docker Image is available on Dockerhub at [debian-gdal](https://hub.docker.com/r/pedros007/debian-gdal)
 
