@@ -17,8 +17,8 @@ RUN apt-get update && apt-get upgrade -y && \
     git clone -b master https://github.com/uclouvain/openjpeg.git /tmp/openjpeg && \
     mkdir /tmp/openjpeg/build && cd /tmp/openjpeg/build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && make install && \
     pip install numpy && \
-    curl http://download.osgeo.org/gdal/2.2.3/gdal-2.2.3.tar.gz | tar zxv -C /tmp && \
-    cd /tmp/gdal-2.2.3 && \
+    curl http://download.osgeo.org/gdal/2.3.0/gdal-2.3.0.tar.gz | tar zxv -C /tmp && \
+    cd /tmp/gdal-2.3.0 && \
     ./configure \
     --prefix=/usr \
     --with-threads \
