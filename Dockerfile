@@ -1,10 +1,14 @@
 FROM python:2
 MAINTAINER Peter Schmitt "pschmitt@gmail.com"
 
-# To build from SVN, comment out curl http://download.osgeo..... and cd, replace with:
+# To build from GitHub, comment out curl http://download.osgeo... and
+# cd, replace with something like:
 #
-#   svn co https://svn.osgeo.org/gdal/trunk/gdal /tmp/gdal-trunk && \
-#   cd /tmp/gdal-trunk && \
+#    curl -L https://github.com/OSGeo/gdal/archive/2c866d3c62bb52852d7ab6850b63d3a3d81b51a1.tar.gz | tar zxv -C /tmp && \
+#    cd /tmp/gdal-2c866d3c62bb52852d7ab6850b63d3a3d81b51a1/gdal && \
+#
+# Then build:
+#   docker build -t pedros007/debian-gdal:2c866d3 .
 
 # To build from a release:
 RUN apt-get update && apt-get upgrade -y && \
@@ -17,8 +21,8 @@ RUN apt-get update && apt-get upgrade -y && \
     git clone -b master https://github.com/uclouvain/openjpeg.git /tmp/openjpeg && \
     mkdir /tmp/openjpeg/build && cd /tmp/openjpeg/build && cmake .. -DCMAKE_INSTALL_PREFIX=/usr && make && make install && \
     pip install numpy && \
-    curl http://download.osgeo.org/gdal/2.3.0/gdal-2.3.0.tar.gz | tar zxv -C /tmp && \
-    cd /tmp/gdal-2.3.0 && \
+    curl http://download.osgeo.org/gdal/2.3.2/gdal-2.3.2.tar.gz | tar zxv -C /tmp && \
+    cd /tmp/gdal-2.3.2 && \
     ./configure \
     --prefix=/usr \
     --with-threads \
